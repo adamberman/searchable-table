@@ -9,6 +9,6 @@ var TableContainer = React.createClass({
 });
 
 React.render(
-  <TableContainer />
+  <TableContainer />,
   document.getElementById('content')
 );

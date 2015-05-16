@@ -8,3 +8,7 @@ var TableContainer = React.createClass({
   }
 });
 
+React.render(
+  <TableContainer />
+  document.getElementById('content')
+);

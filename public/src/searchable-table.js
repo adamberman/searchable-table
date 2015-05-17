@@ -12,6 +12,7 @@ var TableContainer = React.createClass({
     return (
       <div className="tableContainer">
         <h1>Table</h1>
+        <TableContents json={json} />
       </div>
     );
   }

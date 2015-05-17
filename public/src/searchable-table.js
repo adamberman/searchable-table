@@ -25,7 +25,7 @@ var TableContents = React.createClass({
     this.props.data.forEach(function (row) {
       if (categories.indexOf(row.category) === -1) {
         categories.push(row.category);
-        categoryContents[row.category] = [<CategoryRow category={row.category} />, <ProductRow data={row} />];
+        categoryContents[row.category] = [<CategoryRow category={row.category} />, <ProductRow row={row} />];
       } else {
         categoryContents[row.category].push(<ProductRow row={row} />);
       }

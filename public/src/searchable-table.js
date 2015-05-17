@@ -33,7 +33,7 @@ var TableContents = React.createClass({
     
     var displayData = [];
     categories.forEach(function (category) {
-      displayData.concat(categoryContents[category]);
+      displayData = displayData.concat(categoryContents[category]);
     });
 
     return (

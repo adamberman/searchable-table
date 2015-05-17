@@ -60,7 +60,7 @@ var ProductRow = React.createClass({
     var row = this.props.row;
     return(
       <div className="productRow">
-        <span className="productName" style="color:" + {row.stocked ? "black;" : "red;"}>
+        <span className="productName" style={row.stocked ? "color:black;" : "color:red;"}>
           {row.name}
         </span>
         <span className="productPrice">

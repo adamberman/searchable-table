@@ -17,7 +17,61 @@ var TableContainer = React.createClass({
   }
 });
 
+var TableContents = React.createClass({
+  render: function() {
+    var categories = [];
+    var categoryContents = {};
+    this.props.json.forEach(function (row) {
+      if (categories.indexOf(row.category) === -1) {
+        categories.push(row.category);
+        categoryContents[row.category] = [<CategoryRow category={row.category} />, <ProductRow data={row} />];
+      } else {
+        categoryContents[row.category].push(<ProductRow data={row} />);
+      }
+      });
+    
+    var displayData = [];
+    categories.forEach(function (category) {
+      displayData.concat(categoryContents[category]);
+    });
+
+    return (
+      <div className="tableContents">
+        {displayData}
+      </div>
+    );
+  }
+});
+
+var CategoryRow = React.createClass({
+  render: function() {
+    return (
+      <div className="categoryRow">
+        <h4 className="categoryHeader">
+          {this.props.category}
+        </h4>
+      </div>
+    );
+  };
+});
+
+var ProductRow = React.createClass({
+  render: function() {
+    var row = this.props.row;
+    return(
+      <div className="productRow">
+        <span className="productName" style="color:" + {row.stocked ? "black;" : "red;"}>
+          {row.name}
+        </span>
+        <span className="productPrice">
+          {row.price}
+        </span>
+      </div>
+    );
+  }
+});
+
 React.render(
-  <TableContainer />,
+  <TableContainer data={json} />,
   document.getElementById('content')
 );

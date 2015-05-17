@@ -52,7 +52,7 @@ var CategoryRow = React.createClass({
         </h4>
       </div>
     );
-  };
+  }
 });
 
 var ProductRow = React.createClass({

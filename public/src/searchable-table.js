@@ -27,7 +27,7 @@ var TableContents = React.createClass({
         categories.push(row.category);
         categoryContents[row.category] = [<CategoryRow category={row.category} />, <ProductRow data={row} />];
       } else {
-        categoryContents[row.category].push(<ProductRow data={row} />);
+        categoryContents[row.category].push(<ProductRow row={row} />);
       }
       });
     

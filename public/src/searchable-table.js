@@ -12,7 +12,7 @@ var TableContainer = React.createClass({
     return (
       <div className="tableContainer">
         <h1>Table</h1>
-        <TableContents json={json} />
+        <TableContents data={data} />
       </div>
     );
   }
@@ -22,7 +22,7 @@ var TableContents = React.createClass({
   render: function() {
     var categories = [];
     var categoryContents = {};
-    this.props.json.forEach(function (row) {
+    this.props.data.forEach(function (row) {
       if (categories.indexOf(row.category) === -1) {
         categories.push(row.category);
         categoryContents[row.category] = [<CategoryRow category={row.category} />, <ProductRow data={row} />];

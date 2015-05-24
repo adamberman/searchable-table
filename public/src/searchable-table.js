@@ -89,6 +89,13 @@ var ProductRow = React.createClass({
 });
 
 var SearchBox = React.createClass({
+  handleChange: function() {
+    this.props.onUserInput(
+      this.refs.filterTextInput.getDOMNode().value,
+      this.refs.inStockOnlyInput.getDOMNode().checked
+    );
+  },
+
   render: function() {
     return(
       <form className="searchBox">

@@ -104,6 +104,7 @@ var SearchBox = React.createClass({
           value={this.props.filterText}
           placeholder="Search"
           ref="filterTextInput"
+          onChange={this.handleChange}
         />
         <p>
           <label for="inStockOnlyCheckbox">
@@ -114,6 +115,7 @@ var SearchBox = React.createClass({
             type="checkbox"
             checked={this.props.inStockOnly}
             ref="inStockOnlyInput"
+            onChange={this.handleChange}
           />
         </p>
       </form>

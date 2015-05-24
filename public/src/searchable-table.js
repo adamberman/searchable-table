@@ -31,6 +31,18 @@ var TableContents = React.createClass({
   render: function() {
     var categories = [];
     var categoryContents = {};
+    var data = this.props.data;
+    if (this.props.inStockOnly) {
+      data = data.filter(function (item) {
+        item.stocked;
+      });
+    }
+    if (this.props.filterText.length > 0) {
+      data = data.filter(function (item) {
+        item.name.indexOf(this.props.filterText) > -1
+      });
+    }
+
     this.props.data.forEach(function (row) {
       if (categories.indexOf(row.category) === -1) {
         categories.push(row.category);

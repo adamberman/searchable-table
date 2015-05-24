@@ -81,6 +81,27 @@ var ProductRow = React.createClass({
   }
 });
 
+var SearchBox = React.createClass({
+  render: function() {
+    return(
+      <form className="searchBox">
+        <input 
+          type="text" 
+          value={this.props.filterText}
+          placeholder="Search"
+          ref="filterTextInput"
+        />
+        <input
+          type="checkbox"
+          checked={this.props.inStockOnly}
+          ref="inStockOnlyInput"
+        />
+      </form>
+    );
+  }
+});
+
+
 React.render(
   <TableContainer data={json} />,
   document.getElementById('content')

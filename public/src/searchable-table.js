@@ -91,11 +91,17 @@ var SearchBox = React.createClass({
           placeholder="Search"
           ref="filterTextInput"
         />
-        <input
-          type="checkbox"
-          checked={this.props.inStockOnly}
-          ref="inStockOnlyInput"
-        />
+        <p>
+          <label for="inStockOnlyCheckbox">
+            Check to only show items that are in stock
+          </label>
+          <input
+            id="inStockOnlyCheckbox"
+            type="checkbox"
+            checked={this.props.inStockOnly}
+            ref="inStockOnlyInput"
+          />
+        </p>
       </form>
     );
   }

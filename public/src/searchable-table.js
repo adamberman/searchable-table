@@ -19,7 +19,7 @@ var TableContainer = React.createClass({
     return (
       <div className="tableContainer">
         <h1>Table</h1>
-        <TableContents data={this.props.data} />
+        <TableContents data={this.props.data} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly}/>
       </div>
     );
   }

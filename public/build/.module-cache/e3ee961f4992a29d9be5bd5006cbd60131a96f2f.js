@@ -28,15 +28,10 @@ var TableContainer = React.createClass({displayName: "TableContainer",
         React.createElement("h1", null, "Search"), 
         React.createElement(SearchBox, {
           filterText: this.state.filterText, 
-          inStockOnly: this.state.inStockOnly, 
-          onUserInput: this.handleUserInput}
+          inStockOnly: this.state.inStockOnly}
         ), 
         React.createElement("h1", null, "Table"), 
-        React.createElement(TableContents, {
-          data: this.props.data, 
-          filterText: this.state.filterText, 
-          inStockOnly: this.state.inStockOnly}
-        )
+        React.createElement(TableContents, {data: this.props.data, filterText: this.state.filterText, inStockOnly: this.state.inStockOnly})
       )
     );
   }

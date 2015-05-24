@@ -10,8 +10,8 @@ var json = [
 var TableContainer = React.createClass({displayName: "TableContainer",
   getInitialState: function() {
     return {
-      filterText: '',
-      inStockOnly: false
+      filterText: 'ball',
+      inStockOnly: true
     }
   },
 
@@ -36,10 +36,10 @@ var TableContents = React.createClass({displayName: "TableContents",
     var filterText = this.props.filterText;
 
     data.forEach(function (row) {
-      if ((filterText !== '' && row.name.indexOf(filterText) === -1) || (inStockOnly && !row.stocked)) {
-        return;
-      }
       if (categories.indexOf(row.category) === -1) {
+        if ((filterText !== '' && row.name.indexOf(filterText) === -1) || (inStockOnly && !row.stocked)) {
+          return;
+        }
         categories.push(row.category);
         categoryContents[row.category] = [React.createElement(CategoryRow, {category: row.category}), React.createElement(ProductRow, {row: row})];
       } else {

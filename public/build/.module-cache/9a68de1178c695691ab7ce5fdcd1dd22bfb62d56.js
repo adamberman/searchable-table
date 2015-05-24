@@ -11,7 +11,7 @@ var TableContainer = React.createClass({displayName: "TableContainer",
   getInitialState: function() {
     return {
       filterText: '',
-      inStockOnly: false
+      inStockOnly: true
     }
   },
 

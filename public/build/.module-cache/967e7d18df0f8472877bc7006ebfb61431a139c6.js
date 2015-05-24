@@ -10,7 +10,7 @@ var json = [
 var TableContainer = React.createClass({displayName: "TableContainer",
   getInitialState: function() {
     return {
-      filterText: '',
+      filterText: 'ball',
       inStockOnly: false
     }
   },

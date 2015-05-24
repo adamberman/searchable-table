@@ -32,19 +32,14 @@ var TableContents = React.createClass({
     var categories = [];
     var categoryContents = {};
     var data = this.props.data;
-    if (this.props.inStockOnly) {
-      data = data.filter(function (item) {
-        item.stocked;
-      });
-    }
-    if (this.props.filterText.length > 0) {
-      data = data.filter(function (item) {
-        item.name.indexOf(this.props.filterText) > -1
-      });
-    }
+    var inStockOnly = this.props.inStockOnly;
+    var filterText = this.props.filterText;
 
-    this.props.data.forEach(function (row) {
+    data.forEach(function (row) {
       if (categories.indexOf(row.category) === -1) {
+        if ((filterText !== '' && row.name.indexOf(filterText) !== -1) || (inStockOnly && !row.stocked)) {
+          return;
+        }
         categories.push(row.category);
         categoryContents[row.category] = [<CategoryRow category={row.category} />, <ProductRow row={row} />];
       } else {
